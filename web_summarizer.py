@@ -4,7 +4,9 @@ from openai import OpenAI
 import os
 import streamlit as st
 
-client = OpenAI(api_key=st.secrets.get("OPENAI_API_KEY") or os.getenv("OPENAI_API_KEY"))
+
+api_key = st.secrets.get("OPENAI_API_KEY") or os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=api_key)
 
 def fetch_web_text(url):
     try:

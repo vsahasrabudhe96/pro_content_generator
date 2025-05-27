@@ -5,7 +5,10 @@ from prompt_builder import build_email_prompt
 import streamlit as st
 
 load_dotenv()
-client = OpenAI(api_key=st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY")))
+
+api_key = st.secrets.get("OPENAI_API_KEY") or os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=api_key)
+# client = OpenAI(api_key=st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY")))
 
 def generate_email(context):
     prompt = build_email_prompt(context)
