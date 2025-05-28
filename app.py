@@ -26,7 +26,7 @@ tab1, tab2, tab3, tab4 = st.tabs([
 ])
 
 def get_text_or_file(tab_key):
-    # st.markdown("**Upload a .txt, .pdf, or .docx file (Max 20MB)**", unsafe_allow_html=True)
+    st.markdown("**Upload a file Max 20MB**", unsafe_allow_html=True)
 
     # Hide Streamlit's default file size message via CSS
     st.markdown(
