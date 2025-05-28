@@ -13,6 +13,6 @@ def summarize_content(content):
             {"role": "system", "content": "You are an assistant that summarizes text into key points and action items."},
             {"role": "user", "content": f"Summarize this content:\n\n{content}"}
         ],
-        temperature=0.5
+        temperature=0.2
     )
     return response.choices[0].message.content

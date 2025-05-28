@@ -29,6 +29,6 @@ def summarize_website(url):
             {"role": "system", "content": "You summarize webpages into concise key points."},
             {"role": "user", "content": f"Summarize the content of this webpage:\n\n{page_text}"}
         ],
-        temperature=0.5
+        temperature=0.2
     )
     return response.choices[0].message.content

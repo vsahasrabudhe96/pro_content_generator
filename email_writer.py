@@ -18,6 +18,6 @@ def generate_email(context):
             {"role": "system", "content": "You are a professional email assistant."},
             {"role": "user", "content": prompt}
         ],
-        temperature=0.7
+        temperature=0.3
     )
     return response.choices[0].message.content

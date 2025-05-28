@@ -14,6 +14,6 @@ def generate_technical_doc(content):
             {"role": "system", "content": "You are a technical writer who creates professional documentation."},
             {"role": "user", "content": f"Generate technical documentation from the following:\n\n{content}"}
         ],
-        temperature=0.6
+        temperature=0.0
     )
     return response.choices[0].message.content

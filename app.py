@@ -26,11 +26,18 @@ tab1, tab2, tab3, tab4 = st.tabs([
 ])
 
 def get_text_or_file(tab_key):
+    st.markdown("**Upload a .txt, .pdf, or .docx file (Max 20MB)**")
     uploaded_file = st.file_uploader("Optional: Upload a .txt, .pdf, or .docx file", type=["txt", "pdf", "docx"], key=f"file_{tab_key}")
+    
     if uploaded_file:
+        max_size_mb = 20
+        if uploaded_file.size > max_size_mb * 1024 * 1024:
+            st.error(f"File too large. Limit is {max_size_mb}MB.")
+            return ""
         return read_file(uploaded_file)
     else:
         return st.text_area("Or paste content below:", key=f"text_{tab_key}")
+
 
 # --- Email Tab ---
 with tab1:
